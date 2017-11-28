@@ -1,0 +1,11 @@
+<h3>Questions:</h3>
+
+<div><%= link_to 'Add a question', new_question_path %></div>
+<div class="row">
+  <div class="col-md-12">
+    <% @questions.each do |question| %>
+      <h3 class="question-title"><%= question.title %></h3>
+      <p class="question-description"><%= question.description %></p>
+    <% end %>
+  </div>
+</div>
