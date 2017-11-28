@@ -19,6 +19,22 @@ class AnswersController < ApplicationController
     end
   end
 
+  def edit
+  end
+
+  def update
+    if @answer.update(answer_params)
+      redirect_to question_path(@question)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @answer.destroy
+    redirect_to question_path(@question)
+  end
+
   private
   def answer_params
     params.require(:answer).permit(:body_text)

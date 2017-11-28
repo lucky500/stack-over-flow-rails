@@ -13,7 +13,11 @@
       <% if @question.answers.any? %>
         <% @question.answers.each do |answer| %>
           <p><%= answer.body_text %></p>
-          <p><%= link_to "edit", edit_question_answer_path(@question, answer) %></p>
+          <p>
+            <%= link_to "edit", edit_question_answer_path(@question, answer) %>
+            <%= link_to "delete", question_answer_path(@question, answer),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+          </p>
         <% end %>
       <% else %>
         <p>No answers to display.</p>
